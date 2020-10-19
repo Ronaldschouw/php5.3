@@ -1,0 +1,8 @@
+# php  versie 5.3 en centos 6.6
+
+### Bijzonderheden:
+
+Non root port 8080
+
+Voor wie nog een oude mediawiki willen laten runnen met docker
+
