@@ -13,6 +13,7 @@ RUN yum install -y \
         php-gd \
         php-xml \
         php-pgsql \
+        postgresql \
         httpd
 RUN pear install Mail Auth_SASl Net_SMTP
 RUN sed -i "s/80/8080/g" /etc/httpd/conf/httpd.conf
