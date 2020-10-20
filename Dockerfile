@@ -17,7 +17,6 @@ RUN yum install -y \
 RUN pear install Mail Auth_SASl Net_SMTP
 RUN sed -i "s/80/8080/g" /etc/httpd/conf/httpd.conf
 RUN echo 'TransferLog /dev/stdout' >> /etc/httpd/conf/httpd.conf && \
-    echo 'ErrorLog /dev/stderr' >> /etc/httpd/conf/httpd.conf \
-    echo 'CustomLog combined' >> /etc/httpd/conf/httpd.conf
+    echo 'ErrorLog /dev/stderr' >> /etc/httpd/conf/httpd.conf
 EXPOSE 8080
 CMD ["apachectl", "-D", "FOREGROUND"]
