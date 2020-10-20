@@ -15,7 +15,7 @@ RUN yum install -y \
         php-pgsql \
         httpd
 RUN pear install Mail Auth_SASl Net_SMTP
-CMD sed -i "s/80/8080/g" /etc/httpd/httpd.conf
+RUN sed -i "s/80/8080/g" /etc/httpd/conf/httpd.conf
 RUN echo 'TransferLog /dev/stdout' >> /etc/httpd/conf/httpd.conf && \
     echo 'ErrorLog /dev/stderr' >> /etc/httpd/conf/httpd.conf
 EXPOSE 8080
