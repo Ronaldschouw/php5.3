@@ -17,7 +17,7 @@ RUN yum install -y \
         rsync \
         httpd
 RUN pear install Mail Auth_SASl Net_SMTP
-RUN mkdir /etc/httpd/run
+RUN chown apache:apache /etc/httpd/run
 RUN sed -i "s/80/8080/g" /etc/httpd/conf/httpd.conf
 RUN find /etc/httpd/conf/httpd.conf -type f -exec sed -ri ' \
     s!^(\s*CustomLog)\s+\S+!\1 /proc/self/fd/1!g; \
