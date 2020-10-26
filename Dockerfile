@@ -19,6 +19,7 @@ RUN yum install -y \
 RUN pear install Mail Auth_SASl Net_SMTP
 RUN sed -i "s/80/8080/g" /etc/httpd/conf/httpd.conf 
 RUN sed -i "s/run\/httpd.pid/\/tmp\/httpd.pid/g" /etc/httpd/conf/httpd.conf 
+RUN echo 'PIDFILE=/tmp/httpd.pid' >> /etc/sysconfig/httpd
 RUN find /etc/httpd/conf/httpd.conf -type f -exec sed -ri ' \
     s!^(\s*CustomLog)\s+\S+!\1 /proc/self/fd/1!g; \
     s!^(\s*ErrorLog)\s+\S+!\1 /proc/self/fd/2!g; \
